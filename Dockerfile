@@ -13,3 +13,6 @@ RUN pip install -r requirements.txt
 COPY . /app/
 
 CMD ["gunicorn", "--workers=3", "chat_project.asgi:application", "-k", "uvicorn.workers.UvicornWorker"]
+
+# Create the logs directory
+RUN mkdir -p /app/logs

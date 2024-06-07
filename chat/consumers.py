@@ -3,7 +3,6 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 from asgiref.sync import sync_to_async
-from .models import Message
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -49,4 +48,5 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     @sync_to_async
     def save_message(self, user, message):
+        from .models import Message  # Importar aquí para evitar problemas de carga de aplicaciones
         Message.objects.create(user=user, content=message)

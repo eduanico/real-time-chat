@@ -1,0 +1,39 @@
+<!-- chat/template/chat/chat.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="chat-messages"></div>
+    <input type="text" id="chat-input" placeholder="Type your message...">
+    <button id="send-button">Send</button>
+
+    <script>
+        // Obtener el nombre de la sala desde el contexto de Django
+        var roomName = "{{ room_name }}";
+
+        // Establecer la conexión WebSocket al chat room correspondiente
+        var chatSocket = new WebSocket(
+            'ws://' + window.location.host +
+            '/ws/chat/' + roomName + '/');
+
+        // Función para manejar los mensajes entrantes
+        chatSocket.onmessage = function(e) {
+            var data = JSON.parse(e.data);
+            $('#chat-messages').append('<div>' + data.message + '</div>');
+        };
+
+        // Enviar mensaje cuando se haga clic en el botón "Send"
+        $('#send-button').click(function() {
+            var message = $('#chat-input').val();
+            chatSocket.send(JSON.stringify({
+                'message': message
+            }));
+            $('#chat-input').val('');
+        });
+    </script>
+</body>
+</html>
