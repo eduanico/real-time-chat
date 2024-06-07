@@ -1,0 +1,91 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C Extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+media
+staticfiles
+
+# Django migrations
+chat/migrations/
+*/migrations/*
+
+# If your build process includes running collectstatic, then you probably don't need or want to include static files.
+static/
+
+# Docker
+*.env
+docker-compose.override.yml
+logs/
+# Ignore folders that may be created in the root directory
+log/
+tmp/
+*.log
+
+# Sensitive files
+.env
+.env.*
+secrets/
+
+# Local virtualenv
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.orig
+.DS_Store
+
+# Ignore IDE project files
+.vscode/
+.idea/
+
+# Ignore SQLite database files
+*.sqlite3
+
+# Ignore pyenv directories
+.python-version
+.pytest_cache/
+
+# pipenv
+Pipfile.lock
+
+# pytest
+.coverage
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+#env
+mi_entorno
